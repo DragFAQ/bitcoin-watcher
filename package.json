@@ -1,0 +1,14 @@
+{
+  "name": "bitcoin-watcher",
+  "version": "0.0.1",
+  "description": "Watcher for changing bitcoin rate",
+  "main": "index.js",
+  "author": "Sergii Safonov",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:DragFAQ/bitcoin-watcher.git"
+  },
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
