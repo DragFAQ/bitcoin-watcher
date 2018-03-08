@@ -6,9 +6,10 @@
   "author": "Sergii Safonov",
   "repository": {
     "type": "git",
-    "url": "git@github.com:DragFAQ/bitcoin-watcher.git"
+    "url": "git+git@github.com:DragFAQ/bitcoin-watcher.git"
   },
   "dependencies": {
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "system-sleep": "^1.3.6"
   }
 }
