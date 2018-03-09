@@ -2,7 +2,7 @@
   "name": "bitcoin-watcher",
   "version": "0.0.1",
   "description": "Watcher for changing bitcoin rate",
-  "main": "index.js",
+  "main": "app.js",
   "author": "Sergii Safonov",
   "repository": {
     "type": "git",

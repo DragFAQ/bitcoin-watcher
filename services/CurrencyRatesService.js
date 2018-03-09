@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-var config = require('../config');
-var CurrencyRates = require('../dao/' + config.currencyRatesDAO);
+var config = require("../config");
+var CurrencyRates = require(`../dao/${config.currencyRatesDAO}`);
 
 var options = {
     API_URL: config.currencyRatesDAO.API_URL,

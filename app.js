@@ -1,8 +1,8 @@
-'use strict'
+"use strict";
 
-var service = require('./services/CurrencyRatesService');
-var config = require('./config');
-var sleep = require('system-sleep');
+var service = require("./services/CurrencyRatesService");
+var config = require("./config");
+var sleep = require("system-sleep");
 
 function showRate(data) {
     console.log(data);
