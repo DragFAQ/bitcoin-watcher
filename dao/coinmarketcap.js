@@ -14,15 +14,14 @@ class currencyRatesDao {
             if(error) {
                 callback(false);
             }
-            if(response && response.statusCode === 200){
+            if(response && response.statusCode === 200) {
                 let data;
                 try {
                     data = JSON.parse(body);
+                    callback(data[0][`price_${this.convert}`]);
                 } catch (err) {
-                    // Don't crash on unexpected JSON
                     data = false;
                 }
-                callback(data[0][`price_${this.convert}`]);
             } else {
                 callback(false);
             }
