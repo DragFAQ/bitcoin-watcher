@@ -1,10 +1,13 @@
-﻿var assert = require("assert");
+﻿var expect = require('chai').expect;
 var service = require("../services/CurrencyRatesService");
 
-describe('Array', function () {
-    describe('#indexOf()', function () {
-        it('should return -1 when the value is not present', function () {
-            assert.equal([1, 2, 3].indexOf(4), -1);
+describe('#getRate()', function () {
+    describe('Success', function () {
+        it('should get number greater than 0', function (done) {
+            service.getRate(function (rate) {
+                expect(rate).to.be.above(0);    
+            });
+            done();
         });
     });
 });

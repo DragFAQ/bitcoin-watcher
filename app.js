@@ -30,6 +30,6 @@ function onNewTrade(rate) {
 service.subscribeTrades(onNewTrade);
 
 while (true) {
-    service.getRateByCurrency(setRate);
+    service.getRate(setRate);
     sleep(config.refreshPeriod);
 }

@@ -16,8 +16,8 @@ var rates = new CurrencyRates(options);
 var tradeRates = new SocketRates(options);
 
 module.exports = {
-    getRateByCurrency: function (callback) {
-        rates.getRateByCurrency(callback);
+    getRate: function (callback) {
+        rates.getRate(callback);
     },
     subscribeTrades: function (callback) {
         tradeRates.subscribeTrades(callback);

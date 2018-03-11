@@ -10,7 +10,7 @@ class currencyRatesDao {
         this.coin = options.coin || "bitcoin";
     }
 
-    getRateByCurrency(callback) {
+    getRate(callback) {
         request(this.API_URL + `/${this.coin}/?convert=${this.convert}`, (error, response, body) => {
             if(error) {
                 callback(false);

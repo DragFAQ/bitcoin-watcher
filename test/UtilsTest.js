@@ -2,7 +2,7 @@
 var mathUtils = require("../utils/MathUtils");
 var strUtils = require("../utils/StringUtils");
 
-describe('Float diff', function () {
+describe('#floatsDiff()', function () {
     describe('Success', function () {
         it('should return 10 when 100 and 110', function () {
             assert.equal(mathUtils.floatsDiff(100, 110), 10);
@@ -35,7 +35,7 @@ describe('Float diff', function () {
 
 });
 
-describe('Float to string', function () {
+describe('#floatToString()', function () {
     describe('Success', function () {
         it('should return "5.5555" when 5.5555 and 4 digits', function () {
             assert.equal(strUtils.floatToString(5.5555, 4), "5.5555");
@@ -79,7 +79,7 @@ describe('Float to string', function () {
     });
 });
 
-describe('Time to string', function () {
+describe('#timeToString()', function () {
     describe('Success', function () {
         it('should return "10:20" when "2011-0-1 0:10:20:0000" and "MM:ss"', function () {
             var date = new Date(2011, 0, 1, 0, 10, 20, 0);
