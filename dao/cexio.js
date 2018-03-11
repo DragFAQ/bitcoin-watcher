@@ -2,15 +2,19 @@
 
 var WebSocket = require("ws");
 
-var socket = new WebSocket("wss://ws.cex.io/ws/");
+class tradeRateDao {
+    constructor(options = {}) {
+        this.socketUrl = options.socketUrl || "wss://ws.cex.io/ws/";
+        this.convert = options.convert || "USD";
+        this.socket = new WebSocket(this.socketUrl);
+        this.coin = options.coinCode;
+    }
 
-module.exports = {
-    subscribeTrades: function (event) {
+    subscribeTrades(event) {
         socket.onmessage = event;
 
         socket.OPEN;
     }
-}
 
 socket.onopen = function () {
     var outgoingMessage = '{"e": "subscribe", "rooms": ["tickers"]}';
@@ -18,3 +22,6 @@ socket.onopen = function () {
     socket.send(outgoingMessage);
     return false;
 }
+}
+
+module.exports = tradeRateDao;

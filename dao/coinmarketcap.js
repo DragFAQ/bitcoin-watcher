@@ -7,10 +7,11 @@ class currencyRatesDao {
         this.API_URL = options.API_URL || "https://api.coinmarketcap.com/v1/ticker";
         this.convert = options.convert || "USD";
         this.convert = this.convert.toLowerCase();
+        this.coin = options.coin || "bitcoin";
     }
 
-    getRateByCurrency(currency, callback) {
-        request(this.API_URL + `/${currency}/?convert=${this.convert}`, (error, response, body) => {
+    getRateByCurrency(callback) {
+        request(this.API_URL + `/${this.coin}/?convert=${this.convert}`, (error, response, body) => {
             if(error) {
                 callback(false);
             }

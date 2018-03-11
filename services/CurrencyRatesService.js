@@ -6,10 +6,14 @@ var SocketRates = require(`../dao/${config.socketRatesDAOProvider}`);
 
 var options = {
     API_URL: config.currencyRatesDAOAPI_URL,
-    convert: config.currencyRatesConvert
+    convert: config.currencyRatesConvert,
+    coin: config.coin,
+    coinCode: config.coinCode,
+    socketUrl: config.tradeRateDAOSocketUrl
 };
 
 var rates = new CurrencyRates(options);
+var tradeRates = new tradeRateDao(options);
 var onNewTradeCallback;
 
 function onNewTrade(event) {
@@ -26,8 +30,8 @@ function onNewTrade(event) {
 }
 
 module.exports = {
-    getRateByCurrency: function (currency, callback) {
-        rates.getRateByCurrency(currency, callback);
+    getRateByCurrency: function (callback) {
+        rates.getRateByCurrency(callback);
     },
     subscribeTrades: function (currency, callback) {
         onNewTradeCallback = callback;
