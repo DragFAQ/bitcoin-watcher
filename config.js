@@ -10,4 +10,7 @@ config.tradeRateDAOSocketUrl = "wss://ws.cex.io/ws/";
 config.coin = "bitcoin";
 config.coinCode = "BTC";
 
+config.floatDigits = 4;
+config.timeFormat = "MM:ss";
+
 module.exports = config;
