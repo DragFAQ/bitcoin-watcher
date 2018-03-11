@@ -2,7 +2,7 @@
 
 var config = require("../config");
 var CurrencyRates = require(`../dao/${config.currencyRatesDAOProvider}`);
-var SocketRates = require(`../dao/${config.socketRatesDAOProvider}`);
+var SocketRates = require(`../dao/${config.tradeRateDAOProvider}`);
 
 var options = {
     API_URL: config.currencyRatesDAOAPI_URL,
@@ -13,29 +13,13 @@ var options = {
 };
 
 var rates = new CurrencyRates(options);
-var tradeRates = new tradeRateDao(options);
-var onNewTradeCallback;
-
-function onNewTrade(event) {
-    try {
-        var data = JSON.parse(event.data);
-        if (data["e"] == "tick" &&
-            data["data"]["symbol1"] == config.watchCurrencyCode &&
-            data["data"]["symbol2"] == config.currencyRatesConvert) {
-
-            onNewTradeCallback(data["data"]["price"]);
-        }
-    } catch (err) {
-    }
-}
+var tradeRates = new SocketRates(options);
 
 module.exports = {
     getRateByCurrency: function (callback) {
         rates.getRateByCurrency(callback);
     },
-    subscribeTrades: function (currency, callback) {
-        onNewTradeCallback = callback;
-
-        SocketRates.subscribeTrades(onNewTrade);
+    subscribeTrades: function (callback) {
+        tradeRates.subscribeTrades(callback);
     }
 }

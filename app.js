@@ -16,9 +16,9 @@ function onNewTrade(rate) {
     console.log(rate);
 }
 
-service.subscribeTrades(config.watchCurrency, onNewTrade);
+service.subscribeTrades(onNewTrade);
 
 while (true) {
-    service.getRateByCurrency(config.watchCurrency, setRate);
+    service.getRateByCurrency(setRate);
     sleep(config.refreshPeriod);
 }
