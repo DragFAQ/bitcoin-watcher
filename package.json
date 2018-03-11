@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "dateformat": "^3.0.3",
+    "mocha": "^5.0.4",
     "npm": "^5.7.1",
     "request": "^2.83.0",
     "system-sleep": "^1.3.6",
